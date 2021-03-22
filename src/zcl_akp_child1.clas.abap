@@ -1,6 +1,8 @@
-CLASS zcl_akp_base DEFINITION
+CLASS zcl_akp_child1 DEFINITION
   PUBLIC
-  CREATE PUBLIC .
+  FINAL
+  CREATE PUBLIC
+  INHERITING FROM zcl_akp_base.
 
   PUBLIC SECTION.
     METHODS: constructor.
@@ -11,9 +13,10 @@ ENDCLASS.
 
 
 
-CLASS zcl_akp_base IMPLEMENTATION.
+CLASS zcl_akp_child1 IMPLEMENTATION.
 
   METHOD constructor.
+    super->constructor( ).
     IF sy-subrc EQ 0.
 
     ENDIF.
@@ -24,5 +27,4 @@ CLASS zcl_akp_base IMPLEMENTATION.
 
     ENDIF.
   ENDMETHOD.
-
 ENDCLASS.
